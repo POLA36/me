@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abdel Lita - Software Engineer | Fullstack & Backend",
+  title: "lita pola - Software Engineer | Fullstack",
   description: "Software Engineer specialized in Enterprise Systems, Banking Software, Payments, and Process Automation. Building production-grade solutions for the next generation of African innovation.",
 };
 
