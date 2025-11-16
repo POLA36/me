@@ -48,7 +48,7 @@ export default function AboutMe() {
               
               <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                 <p>
-                  I&apos;m <span className="text-purple-400 font-semibold">Abdel Lita</span>, a bilingual (EN/FR) engineer with hands-on experience building systems that keep organisations running.
+                  I&apos;m <span className="text-purple-400 font-semibold">LITA POLA ABDEL</span>, a bilingual (EN/FR) engineer with hands-on experience building systems that keep organisations running.
                 </p>
                 <p>
                   I work on complex, high-impact systems used daily by staff, accountants, HR teams, and financial departments.
