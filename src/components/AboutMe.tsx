@@ -3,7 +3,7 @@
 export default function AboutMe() {
   const features = [
     {
-      number: '08+',
+      number: '05+',
       title: 'Build Enterprise Systems',
       description: 'Build enterprise systems with Spring Boot, Java, Node.js, React, and Next.js.',
       icon: (
@@ -61,7 +61,7 @@ export default function AboutMe() {
               {/* Stats Grid */}
               <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10">
                 <div className="text-center">
-                  <div className="text-2xl font-bold gradient-text mb-1">8+</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">+5</div>
                   <div className="text-xs text-gray-400 uppercase tracking-wider">Years</div>
                 </div>
                 <div className="text-center">

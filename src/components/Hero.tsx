@@ -60,7 +60,7 @@ export default function Hero() {
               </svg>
             </a>
             <a 
-              href="https://behance.net" 
+              href="https://www.behance.net/abdellita" 
               target="_blank" 
               rel="noopener noreferrer"
               className="absolute top-1/2 -right-8 w-12 h-12 dark-card rounded-lg flex items-center justify-center border border-white/10 social-icon"
