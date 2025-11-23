@@ -3,7 +3,7 @@
 export default function AboutMe() {
   const features = [
     {
-      number: '05+',
+      number: '3+',
       title: 'Build Enterprise Systems',
       description: 'Build enterprise systems with Spring Boot, Java, Node.js, React, and Next.js.',
       icon: (
@@ -48,20 +48,20 @@ export default function AboutMe() {
               
               <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
                 <p>
-                  I&apos;m <span className="text-purple-400 font-semibold">LITA POLA ABDEL</span>, a bilingual (EN/FR) engineer with hands-on experience building systems that keep organisations running.
+                  I&apos;m <span className="text-purple-400 font-semibold">LITA ABDEL</span>, a bilingual (English–French) Software Engineer specializing in Payments, Core Banking, Middleware, and Full-Stack Development.
                 </p>
                 <p>
-                  I work on complex, high-impact systems used daily by staff, accountants, HR teams, and financial departments.
+                  I work on complex, high-impact systems used daily by staff, accountants, HR teams, and financial departments at PKFokam Research Center.
                 </p>
                 <p className="pt-2">
-                  My strength is understanding both <span className="text-orange-400 font-semibold">business logic</span> and <span className="text-purple-400 font-semibold">technical architecture</span>, allowing me to deliver solutions that are both functional and robust.
+                  My strength is understanding both <span className="text-orange-400 font-semibold">business logic</span> and <span className="text-purple-400 font-semibold">technical architecture</span>, allowing me to deliver solutions that are both functional and robust. I also founded and lead <span className="text-purple-400 font-semibold">Roof</span>, a real estate application.
                 </p>
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10">
                 <div className="text-center">
-                  <div className="text-2xl font-bold gradient-text mb-1">+5</div>
+                  <div className="text-2xl font-bold gradient-text mb-1">3+</div>
                   <div className="text-xs text-gray-400 uppercase tracking-wider">Years</div>
                 </div>
                 <div className="text-center">

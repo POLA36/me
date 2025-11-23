@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <section id="home" className="mt-24 md:mt-32 mb-24 md:mb-32 scroll-mt-20">
@@ -8,20 +10,24 @@ export default function Hero() {
             Hello,
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-            Delivering reliable, scalable financial and enterprise systems for the next generation of African innovation.
+            Software Engineer specializing in Payments, Core Banking, Middleware, and Full-Stack Development. Building reliable, scalable financial systems for the next generation of African innovation.
           </p>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <span className="text-purple-400">—</span>
-              <span className="text-lg text-gray-300">Software Engineer</span>
+              <span className="text-lg text-gray-300">Payments</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-purple-400">—</span>
-              <span className="text-lg text-gray-300">Fullstack</span>
+              <span className="text-lg text-gray-300">Core Banking</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-purple-400">—</span>
-              <span className="text-lg text-gray-300">Enterprise Systems</span>
+              <span className="text-lg text-gray-300">Middleware</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-purple-400">—</span>
+              <span className="text-lg text-gray-300">Frontend/Backend</span>
             </div>
           </div>
         </div>
@@ -32,8 +38,15 @@ export default function Hero() {
             {/* Profile Picture Container */}
             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-purple-500/30 to-orange-500/30 p-1">
               <div className="w-full h-full rounded-full bg-[#1a1a1a] flex items-center justify-center">
-                <div className="w-44 h-44 md:w-60 md:h-60 rounded-full bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center text-5xl md:text-6xl font-bold">
-                  AL
+                <div className="relative w-44 h-44 md:w-60 md:h-60 rounded-full bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center text-4xl md:text-5xl font-bold overflow-hidden">
+                {/* add my linkedin profile picture */}
+                <Image 
+                  src="/LikendinImage.jpg" 
+                  alt="LITA ABDEL" 
+                  fill
+                  className="object-cover rounded-full"
+                  sizes="(max-width: 768px) 176px, 240px"
+                />
                 </div>
               </div>
             </div>
@@ -105,7 +118,7 @@ export default function Hero() {
         <div className="md:col-span-1 text-center md:text-left">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             I am <br />
-            <span className="gradient-text">Lita Abdel</span>
+            <span className="gradient-text">LITA ABDEL</span>
           </h2>
         </div>
       </div>

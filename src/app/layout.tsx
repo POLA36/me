@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "lita pola - Software Engineer | Fullstack",
-  description: "Software Engineer specialized in Enterprise Systems, Banking Software, Payments, and Process Automation. Building production-grade solutions for the next generation of African innovation.",
+  title: "LITA ABDEL - Software Engineer | Payments | Core Banking | Middleware",
+  description: "Software Engineer specializing in Payments, Core Banking, Middleware, and Full-Stack Development. Building reliable, scalable financial systems for the next generation of African innovation.",
 };
 
 export default function RootLayout({

@@ -39,7 +39,7 @@ export default function Contact() {
           </div>
 
           {/* Futuristic contact cards */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {/* Email Card */}
             <a
               href="mailto:litapo489@gmail.com"
@@ -104,7 +104,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="text-orange-400 font-mono text-sm group-hover:text-purple-400 transition-colors">
-                  +237 658415339
+                  +237 658 415 339
                 </div>
               </div>
               
@@ -115,6 +115,32 @@ export default function Contact() {
                 </svg>
               </div>
             </a>
+
+            {/* Location Card */}
+            <div className="group relative overflow-hidden rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-transparent p-6">
+              {/* Animated gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-purple-500/5 to-orange-500/0"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-orange-500/20 flex items-center justify-center border border-purple-500/30">
+                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 uppercase tracking-wider mb-1">Location</div>
+                    <div className="text-lg font-semibold text-white">
+                      Yaoundé, Cameroon
+                    </div>
+                  </div>
+                </div>
+                <div className="text-gray-400 text-sm">
+                  English–French Bilingual
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

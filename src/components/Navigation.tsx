@@ -12,7 +12,7 @@ export default function Navigation() {
           className="cursor-pointer"
         >
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-orange-500 flex items-center justify-center hover:scale-110 transition-transform">
-            <span className="text-sm font-bold">LP</span>
+            <span className="text-sm font-bold">LA</span>
           </div>
         </a>
       </div>
