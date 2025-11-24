@@ -10,8 +10,9 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="wavy-bg"></div>
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+      <div className="bg-grain"></div>
+      <div className="spotlight"></div>
       
       <Navigation />
 

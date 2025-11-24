@@ -1,125 +1,156 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: #050505;
   --foreground: #ededed;
-  --card-bg: #1a1a1a;
-  --gradient-start: #8b5cf6;
-  --gradient-end: #f97316;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --accent-primary: #3b82f6;
+  /* Electric Blue */
+  --accent-secondary: #60a5fa;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+
+  --font-sans: var(--font-jakarta), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* selection-background-color is invalid, using ::selection instead */
 }
 
-/* Abstract wavy background pattern */
-.wavy-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* Grain Texture */
+.bg-grain {
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
   z-index: 0;
-  opacity: 0.1;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.2) 0%, transparent 50%);
-  background-size: 100% 100%;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.wavy-bg::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 2px,
-      rgba(139, 92, 246, 0.05) 2px,
-      rgba(139, 92, 246, 0.05) 4px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 2px,
-      rgba(249, 115, 22, 0.05) 2px,
-      rgba(249, 115, 22, 0.05) 4px
-    );
-  animation: wave 20s linear infinite;
+/* Ambient Spotlight */
+.spotlight {
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center,
+      rgba(59, 130, 246, 0.08) 0%,
+      rgba(59, 130, 246, 0.03) 30%,
+      transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes wave {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(50px, 50px);
-  }
+/* Typography Utilities */
+.text-balance {
+  text-wrap: balance;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+.text-gradient {
+  background: linear-gradient(to right, #fff, #a1a1aa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Gradient button */
-.gradient-button {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  transition: all 0.3s ease;
+.text-gradient-accent {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.gradient-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
-}
-
-/* Card styles */
-.dark-card {
+/* Glass Panel */
+.glass-panel {
   background: var(--card-bg);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark-card:hover {
-  border-color: rgba(139, 92, 246, 0.3);
-  transform: translateY(-4px);
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
 }
 
-/* Tag/Badge styles */
-.tag {
-  background: var(--card-bg);
+/* Button Styles */
+.btn-primary {
+  background: #fff;
+  color: #000;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 0.875rem;
-  display: inline-block;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
 }
 
-/* Social icon hover effects */
-.social-icon {
-  transition: all 0.3s ease;
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.social-icon:hover {
-  transform: scale(1.1);
-  border-color: rgba(139, 92, 246, 0.5);
-  background: rgba(139, 92, 246, 0.1);
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }
