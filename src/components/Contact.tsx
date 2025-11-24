@@ -29,11 +29,6 @@ export default function Contact() {
                 +237 658 415 339
               </a>
             </div>
-
-            <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-              <p>© 2024 Lita Abdel. All rights reserved.</p>
-              <p>Yaoundé, Cameroon (Open to Remote)</p>
-            </div>
           </div>
         </div>
       </div>
