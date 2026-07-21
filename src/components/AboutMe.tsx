@@ -35,7 +35,7 @@ export default function AboutMe() {
           }}
         >
           My full name is <span style={{ color: '#fff' }}>Lita Pola Abdel.</span> Two names — Lita and Pola — that
-          belong together. The birth certificate disagreed. So I built something that puts them back where they
+          belong together. The birth certificate only kept one. So I built something that puts them back where they
           belong: <span style={{ color: '#fff' }}>Litapola.</span>
         </p>
       </div>

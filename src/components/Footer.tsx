@@ -15,7 +15,7 @@ export default function Footer() {
       }}
     >
       <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.42)' }}>
-        © 2026 LITA POLA · SOMEWHERE IN AFRICA · 3°52′N 11°31′E
+        © {new Date().getFullYear()} LITA POLA · SOMEWHERE IN AFRICA · 3°52′N 11°31′E
       </div>
       <div style={{ fontFamily: FF_SYNE, fontWeight: 800, fontSize: 16, letterSpacing: '0.03em' }}>
         LITAPOLA<span style={{ opacity: 0.55 }}>.org</span>

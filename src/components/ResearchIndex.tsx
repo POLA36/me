@@ -1,16 +1,9 @@
 'use client';
 
+import { projects, type Project } from '@/data/projects';
+
 const FF_SYNE = "var(--font-syne, 'Syne', sans-serif)";
 const FF_MONO = "var(--font-mono, 'JetBrains Mono', monospace)";
-
-const index = [
-  { num: '001', name: 'Amarah', domain: 'Fintech Infrastructure', status: 'Live', year: '2025' },
-  { num: '002', name: 'AgentPay', domain: 'AI Agent Systems', status: 'Concept', year: '2026' },
-  { num: '003', name: 'EyeDoc', domain: 'Clinical Intelligence', status: 'Spec written', year: '2026' },
-  { num: '004', name: 'The Farm', domain: 'Agricultural Technology', status: 'Phase 3 active', year: '2025' },
-  { num: '005', name: 'PaymentHub', domain: 'Financial Messaging', status: 'Research', year: '2025' },
-  { num: '006', name: 'Roof', domain: 'Lesson Documented', status: 'Pivoted', year: '2025' },
-];
 
 export default function ResearchIndex() {
   return (
@@ -31,7 +24,7 @@ export default function ResearchIndex() {
         }}
       >
         <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.42)', textTransform: 'uppercase' }}>
-          Research Index — 006 entries
+          Research Index — {String(projects.length).padStart(3, '0')} entries
         </div>
         <div style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.3)' }}>
           CLASSIFICATION / STATUS / YEAR
@@ -47,7 +40,7 @@ export default function ResearchIndex() {
           border: '0.5px solid rgba(255,255,255,0.1)',
         }}
       >
-        {index.map((ix) => (
+        {projects.map((ix) => (
           <IndexCard key={ix.num} ix={ix} />
         ))}
       </div>
@@ -55,10 +48,14 @@ export default function ResearchIndex() {
   );
 }
 
-function IndexCard({ ix }: { ix: (typeof index)[0] }) {
+function IndexCard({ ix }: { ix: Project }) {
+  const isExternal = !!ix.href;
+  const href = ix.href ?? `/work/${ix.slug}`;
+
   return (
     <a
-      href={`#work`}
+      href={href}
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       style={{
         background: '#000',
         padding: '20px 22px',

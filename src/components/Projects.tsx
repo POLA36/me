@@ -1,73 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { projects } from '@/data/projects';
 
 const FF_SYNE = "var(--font-syne, 'Syne', sans-serif)";
 const FF_MONO = "var(--font-mono, 'JetBrains Mono', monospace)";
 const FF_SPACE = "var(--font-space, 'Space Grotesk', sans-serif)";
-
-const projects = [
-  {
-    num: '001',
-    name: 'Amarah',
-    status: 'Live',
-    dotFill: true,
-    dotOp: 1,
-    desc: 'Bilingual fintech platform enabling Mobile Money-based investment in US stocks for CEMAC users. 2,400+ on waitlist. Registered company. Built on Next.js.',
-    tags: ['Fintech', 'Mobile Money', 'Next.js', 'XAF'],
-    year: '2025',
-  },
-  {
-    num: '002',
-    name: 'AgentPay',
-    status: 'Concept',
-    dotFill: true,
-    dotOp: 0.6,
-    desc: 'Agent-native payment infrastructure. Programmable wallets with spending rules for AI agents transacting autonomously on behalf of humans. Mobile Money as the proving ground.',
-    tags: ['AI Infrastructure', 'Payments', 'Agent economy'],
-    year: '2026',
-  },
-  {
-    num: '003',
-    name: 'EyeDoc',
-    status: 'Spec written',
-    dotFill: false,
-    dotOp: 0.7,
-    desc: 'AI clinical copilot for frontline healthcare workers. ECG, ultrasound, lab interpretation and differential diagnosis engine purpose-built for rural clinics.',
-    tags: ['Health AI', 'Diagnostics', 'Rural care'],
-    year: '2026',
-  },
-  {
-    num: '004',
-    name: 'The Farm',
-    status: 'Phase 3 active',
-    dotFill: true,
-    dotOp: 0.45,
-    desc: '3-phase potato farming operation in Cameroon. 2,500,000+ XAF invested. Full expense tracking, crop schedule, emergency inputs and lessons documented across every phase.',
-    tags: ['Agri-tech', 'Field ops', 'Cameroon'],
-    year: '2025',
-  },
-  {
-    num: '005',
-    name: 'PaymentHub',
-    status: 'Research',
-    dotFill: false,
-    dotOp: 0.55,
-    desc: 'SWIFT MT to ISO 20022 MX translation engine. Technical specification covering 32 message types across 3 implementation phases for PKF Research Center.',
-    tags: ['SWIFT', 'ISO 20022', 'PKF'],
-    year: '2025',
-  },
-  {
-    num: '006',
-    name: 'Roof',
-    status: 'Pivoted',
-    dotFill: true,
-    dotOp: 0.28,
-    desc: "Didn't go as planned. Pivoted. Every serious builder has a Roof — a project that teaches more in failure than any success would have. The lesson lives here.",
-    tags: ['Lesson learned', 'Pivot'],
-    year: '2025',
-  },
-];
 
 export default function Projects() {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -102,150 +40,170 @@ export default function Projects() {
           Selected Work
         </h2>
         <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)' }}>
-          006 — built when the problem demanded it
+          007 — built when the problem demanded it
         </div>
       </div>
 
       <div style={{ borderTop: '0.5px solid rgba(255,255,255,0.12)' }}>
         {projects.map((p, i) => {
           const active = hovered === i;
+          const isExternal = !!p.href;
+          const href = p.href ?? `/work/${p.slug}`;
+          const arrow = isExternal ? '↗' : '→';
+
           const dotStyle = p.dotFill
             ? { background: '#fff', opacity: p.dotOp }
             : { background: 'transparent', border: `1px solid rgba(255,255,255,${p.dotOp})`, width: 5, height: 5 };
 
-          return (
+          const rowStyle = {
+            display: 'block',
+            position: 'relative' as const,
+            padding: `clamp(26px,4vh,40px) 0`,
+            paddingLeft: active ? 18 : 0,
+            borderBottom: '0.5px solid rgba(255,255,255,0.12)',
+            cursor: 'pointer',
+            transition: 'padding-left .4s ease',
+            textDecoration: 'none',
+            color: '#fff',
+          };
+
+          const inner = (
             <div
-              key={p.num}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
               style={{
-                display: 'block',
-                position: 'relative',
-                padding: `clamp(26px,4vh,40px) 0`,
-                paddingLeft: active ? 18 : 0,
-                borderBottom: '0.5px solid rgba(255,255,255,0.12)',
-                cursor: 'pointer',
-                transition: 'padding-left .4s ease',
+                display: 'grid',
+                gridTemplateColumns: 'auto 1fr auto',
+                gap: 'clamp(18px,4vw,56px)',
+                alignItems: 'start',
               }}
             >
               <div
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'auto 1fr auto',
-                  gap: 'clamp(18px,4vw,56px)',
-                  alignItems: 'start',
+                  fontFamily: FF_SYNE,
+                  fontWeight: 700,
+                  fontSize: 'clamp(15px,1.6vw,20px)',
+                  color: 'rgba(255,255,255,0.35)',
+                  paddingTop: 6,
+                  fontVariantNumeric: 'tabular-nums',
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: FF_SYNE,
-                    fontWeight: 700,
-                    fontSize: 'clamp(15px,1.6vw,20px)',
-                    color: 'rgba(255,255,255,0.35)',
-                    paddingTop: 6,
-                    fontVariantNumeric: 'tabular-nums',
-                  }}
-                >
-                  {p.num}
-                </div>
+                {p.num}
+              </div>
 
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-                    <h3
-                      style={{
-                        fontFamily: FF_SYNE,
-                        fontWeight: 800,
-                        fontSize: 'clamp(28px,5vw,58px)',
-                        letterSpacing: '-0.03em',
-                        margin: 0,
-                        lineHeight: 1,
-                      }}
-                    >
-                      {p.name}
-                    </h3>
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 7,
-                        padding: '4px 11px',
-                        border: '0.5px solid rgba(255,255,255,0.22)',
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: '50%',
-                          flexShrink: 0,
-                          display: 'inline-block',
-                          ...dotStyle,
-                        }}
-                      />
-                      <span style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.7)' }}>
-                        {p.status}
-                      </span>
-                    </div>
-                  </div>
-
-                  <p
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+                  <h3
                     style={{
-                      maxWidth: 620,
-                      fontSize: 'clamp(13px,1.4vw,15.5px)',
-                      lineHeight: 1.6,
-                      color: 'rgba(255,255,255,0.55)',
-                      margin: '14px 0 0',
-                      fontWeight: 300,
-                      fontFamily: FF_SPACE,
+                      fontFamily: FF_SYNE,
+                      fontWeight: 800,
+                      fontSize: 'clamp(28px,5vw,58px)',
+                      letterSpacing: '-0.03em',
+                      margin: 0,
+                      lineHeight: 1,
                     }}
                   >
-                    {p.desc}
-                  </p>
-
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
-                    {p.tags.map((t) => (
-                      <span
-                        key={t}
-                        style={{
-                          fontFamily: FF_MONO,
-                          fontSize: 10,
-                          letterSpacing: '0.04em',
-                          color: 'rgba(255,255,255,0.5)',
-                          border: '0.5px solid rgba(255,255,255,0.14)',
-                          padding: '4px 9px',
-                        }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
+                    {p.name}
+                  </h3>
                   <div
                     style={{
-                      height: 1,
-                      background: '#fff',
-                      marginTop: 22,
-                      transition: 'width .45s cubic-bezier(.2,.8,.2,1)',
-                      width: active ? '100%' : '0%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 7,
+                      padding: '4px 11px',
+                      border: '0.5px solid rgba(255,255,255,0.22)',
                     }}
-                  />
+                  >
+                    <span
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: '50%',
+                        flexShrink: 0,
+                        display: 'inline-block',
+                        ...dotStyle,
+                      }}
+                    />
+                    <span style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.7)' }}>
+                      {p.status}
+                    </span>
+                  </div>
+                </div>
+
+                {p.role && (
+                  <div style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.35)', marginTop: 8 }}>
+                    {p.role}
+                  </div>
+                )}
+
+                <p
+                  style={{
+                    maxWidth: 620,
+                    fontSize: 'clamp(13px,1.4vw,15.5px)',
+                    lineHeight: 1.6,
+                    color: 'rgba(255,255,255,0.55)',
+                    margin: '14px 0 0',
+                    fontWeight: 300,
+                    fontFamily: FF_SPACE,
+                  }}
+                >
+                  {p.desc}
+                </p>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      style={{
+                        fontFamily: FF_MONO,
+                        fontSize: 10,
+                        letterSpacing: '0.04em',
+                        color: 'rgba(255,255,255,0.5)',
+                        border: '0.5px solid rgba(255,255,255,0.14)',
+                        padding: '4px 9px',
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
 
                 <div
                   style={{
-                    fontFamily: FF_SYNE,
-                    fontSize: 'clamp(24px,3vw,40px)',
-                    color: '#fff',
-                    paddingTop: 4,
-                    transition: 'opacity .35s, transform .35s',
-                    opacity: active ? 1 : 0,
-                    transform: active ? 'translateX(0px)' : 'translateX(-8px)',
+                    height: 1,
+                    background: '#fff',
+                    marginTop: 22,
+                    transition: 'width .45s cubic-bezier(.2,.8,.2,1)',
+                    width: active ? '100%' : '0%',
                   }}
-                >
-                  ↗
-                </div>
+                />
+              </div>
+
+              <div
+                style={{
+                  fontFamily: FF_SYNE,
+                  fontSize: 'clamp(24px,3vw,40px)',
+                  color: '#fff',
+                  paddingTop: 4,
+                  transition: 'opacity .35s, transform .35s',
+                  opacity: active ? 1 : 0,
+                  transform: active ? 'translateX(0px)' : 'translateX(-8px)',
+                }}
+              >
+                {arrow}
               </div>
             </div>
+          );
+
+          return (
+            <a
+              key={p.num}
+              href={href}
+              {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              style={rowStyle}
+            >
+              {inner}
+            </a>
           );
         })}
       </div>

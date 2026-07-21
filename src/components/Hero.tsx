@@ -44,7 +44,7 @@ export default function Hero() {
               textTransform: 'uppercase',
             }}
           >
-            Personal Portfolio — 2026
+            Personal Portfolio — {new Date().getFullYear()}
           </div>
 
           <h1
@@ -146,7 +146,7 @@ export default function Hero() {
                 src="/LikendinImage.jpg"
                 alt="Abdel A. Lita"
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'contain' }}
                 sizes="(max-width: 768px) 100vw, 40vw"
                 priority
               />
@@ -214,7 +214,7 @@ export default function Hero() {
         }}
       >
         <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)' }}>
-          3°52′N 11°31′E · CEMAC
+          3°52′N 11°31′E · AFRICA
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <span style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.18em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' }}>
