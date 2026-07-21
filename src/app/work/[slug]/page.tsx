@@ -164,6 +164,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               {project.role}
             </span>
           )}
+          {project.note && (
+            <span style={{ fontFamily: FF_MONO, fontSize: 9.5, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.2)' }}>
+              {project.note}
+            </span>
+          )}
         </div>
 
         {/* Divider */}

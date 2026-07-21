@@ -8,6 +8,7 @@ export type Project = {
   dotOp: number;
   desc: string;
   tags: string[];
+  note?: string;
   year: string;
   domain: string;
   role?: string;
@@ -105,5 +106,20 @@ export const projects: Project[] = [
     year: '2026',
     domain: 'Developer Infrastructure',
     role: 'Frontend Lead',
+  },
+  {
+    slug: 'tsu',
+    num: '008',
+    name: 'Tsʉ̌',
+    status: 'Pre-MVP — YC Applied',
+    href: 'https://usetsu.vercel.app',
+    dotFill: false,
+    dotOp: 0.7,
+    desc: 'AI precision agriculture platform for smallholder farmers in Central Africa. Combines soil sensors, field cameras, and AI to deliver a daily morning report telling the farmer exactly what is wrong in their field and what to do about it. Applied to YC Fall 2026.',
+    tags: ['AgriTech', 'AI', 'Hardware', 'IoT', 'CEMAC'],
+    year: '2026',
+    domain: 'Agricultural Technology',
+    role: 'Solo founder',
+    note: 'Tsʉ̌ — to grow, in Ghomala\'',
   },
 ];

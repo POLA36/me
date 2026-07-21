@@ -40,7 +40,7 @@ export default function Projects() {
           Selected Work
         </h2>
         <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)' }}>
-          007 — built when the problem demanded it
+          008 — built when the problem demanded it
         </div>
       </div>
 
@@ -131,6 +131,12 @@ export default function Projects() {
                 {p.role && (
                   <div style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.35)', marginTop: 8 }}>
                     {p.role}
+                  </div>
+                )}
+
+                {p.note && (
+                  <div style={{ fontFamily: FF_MONO, fontSize: 9.5, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.2)', marginTop: 4 }}>
+                    {p.note}
                   </div>
                 )}
 
