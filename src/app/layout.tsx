@@ -1,16 +1,32 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Syne, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  weight: ["600", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-space",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "LITA ABDEL - Software Engineer | Payments | Core Banking | Middleware",
-  description: "Software Engineer specializing in Payments, Core Banking, Middleware, and Full-Stack Development. Building reliable, scalable financial systems for the next generation of African innovation.",
+  title: "LITAPOLA — Abdel A. Lita",
+  description:
+    "Not tech-first. A creative who moves through fashion, music, and film — and builds infrastructure for the next internet when the problem demands it.",
 };
 
 export default function RootLayout({
@@ -19,12 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${jakarta.variable} font-sans antialiased bg-[#050505] text-white selection:bg-blue-500/30 selection:text-white`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${syne.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

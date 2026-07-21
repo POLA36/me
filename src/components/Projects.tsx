@@ -1,119 +1,254 @@
 'use client';
 
-export default function Projects() {
-  interface Project {
-    title: string;
-    description: string;
-    tech: string[];
-    link?: string;
-    links?: { label: string; url: string }[];
-  }
+import { useState } from 'react';
 
-  const projects: Project[] = [
-    {
-      title: 'Roof - Real Estate App',
-      description: 'Property management platform with video/image uploads and monetization system.',
-      tech: ['React Native', 'Node.js', 'Express'],
-      links: [
-        { label: 'Website', url: 'https://www.roofapp.app/en' },
-        { label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.abdelpola.Roof&pcampaignid=web_share' }
-      ]
-    },
-    {
-      title: 'Seedtrack - AgriTech Platform',
-      description: 'Frontend development for an agricultural tracking platform with Google Maps integration.',
-      tech: ['ReactJS', 'Google Maps API', 'HTML/CSS'],
-      links: [
-        { label: 'Website', url: 'https://seedtrack.org' }
-      ]
-    },
-    {
-      title: 'Payment Processing Engine',
-      description: 'High-volume transaction management system with RTGS/ACH/SWIFT integration.',
-      tech: ['Next.js', 'React Hooks', 'Java', 'Spring Boot'],
-      // link: '#'
-    },
-    {
-      title: 'Middleware Integration Hub',
-      description: 'Enterprise message routing and transformation system using Camunda BPMN.',
-      tech: ['Camunda', 'Java', 'REST'],
-      // link: '#'
-    },
-    {
-      title: 'Core Banking System',
-      description: 'Comprehensive banking modules for Party Management and End-of-Day processing.',
-      tech: ['Java', 'Oracle', 'Microservices'],
-      // link: '#'
-    }
-  ];
+const FF_SYNE = "var(--font-syne, 'Syne', sans-serif)";
+const FF_MONO = "var(--font-mono, 'JetBrains Mono', monospace)";
+const FF_SPACE = "var(--font-space, 'Space Grotesk', sans-serif)";
+
+const projects = [
+  {
+    num: '001',
+    name: 'Amarah',
+    status: 'Live',
+    dotFill: true,
+    dotOp: 1,
+    desc: 'Bilingual fintech platform enabling Mobile Money-based investment in US stocks for CEMAC users. 2,400+ on waitlist. Registered company. Built on Next.js.',
+    tags: ['Fintech', 'Mobile Money', 'Next.js', 'XAF'],
+    year: '2025',
+  },
+  {
+    num: '002',
+    name: 'AgentPay',
+    status: 'Concept',
+    dotFill: true,
+    dotOp: 0.6,
+    desc: 'Agent-native payment infrastructure. Programmable wallets with spending rules for AI agents transacting autonomously on behalf of humans. Mobile Money as the proving ground.',
+    tags: ['AI Infrastructure', 'Payments', 'Agent economy'],
+    year: '2026',
+  },
+  {
+    num: '003',
+    name: 'EyeDoc',
+    status: 'Spec written',
+    dotFill: false,
+    dotOp: 0.7,
+    desc: 'AI clinical copilot for frontline healthcare workers. ECG, ultrasound, lab interpretation and differential diagnosis engine purpose-built for rural clinics.',
+    tags: ['Health AI', 'Diagnostics', 'Rural care'],
+    year: '2026',
+  },
+  {
+    num: '004',
+    name: 'The Farm',
+    status: 'Phase 3 active',
+    dotFill: true,
+    dotOp: 0.45,
+    desc: '3-phase potato farming operation in Cameroon. 2,500,000+ XAF invested. Full expense tracking, crop schedule, emergency inputs and lessons documented across every phase.',
+    tags: ['Agri-tech', 'Field ops', 'Cameroon'],
+    year: '2025',
+  },
+  {
+    num: '005',
+    name: 'PaymentHub',
+    status: 'Research',
+    dotFill: false,
+    dotOp: 0.55,
+    desc: 'SWIFT MT to ISO 20022 MX translation engine. Technical specification covering 32 message types across 3 implementation phases for PKF Research Center.',
+    tags: ['SWIFT', 'ISO 20022', 'PKF'],
+    year: '2025',
+  },
+  {
+    num: '006',
+    name: 'Roof',
+    status: 'Pivoted',
+    dotFill: true,
+    dotOp: 0.28,
+    desc: "Didn't go as planned. Pivoted. Every serious builder has a Roof — a project that teaches more in failure than any success would have. The lesson lives here.",
+    tags: ['Lesson learned', 'Pivot'],
+    year: '2025',
+  },
+];
+
+export default function Projects() {
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="mb-24 md:mb-32 scroll-mt-20">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-3 mb-12">
-          <span className="w-8 h-px bg-blue-500/50"></span>
-          <h2 className="text-2xl md:text-3xl font-bold">Selected Work</h2>
+    <section
+      id="work"
+      style={{
+        padding: 'clamp(70px,12vh,140px) clamp(20px,5vw,64px)',
+        borderTop: '0.5px solid rgba(255,255,255,0.1)',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'space-between',
+          marginBottom: 'clamp(40px,6vh,72px)',
+          flexWrap: 'wrap',
+          gap: 16,
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: FF_SYNE,
+            fontWeight: 800,
+            fontSize: 'clamp(30px,5vw,64px)',
+            letterSpacing: '-0.03em',
+            margin: 0,
+          }}
+        >
+          Selected Work
+        </h2>
+        <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)' }}>
+          006 — built when the problem demanded it
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+      </div>
+
+      <div style={{ borderTop: '0.5px solid rgba(255,255,255,0.12)' }}>
+        {projects.map((p, i) => {
+          const active = hovered === i;
+          const dotStyle = p.dotFill
+            ? { background: '#fff', opacity: p.dotOp }
+            : { background: 'transparent', border: `1px solid rgba(255,255,255,${p.dotOp})`, width: 5, height: 5 };
+
+          return (
             <div
-              key={index}
-              className="glass-panel p-6 rounded-xl group relative overflow-hidden"
+              key={p.num}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                display: 'block',
+                position: 'relative',
+                padding: `clamp(26px,4vh,40px) 0`,
+                paddingLeft: active ? 18 : 0,
+                borderBottom: '0.5px solid rgba(255,255,255,0.12)',
+                cursor: 'pointer',
+                transition: 'padding-left .4s ease',
+              }}
             >
-              <div className="relative z-10 flex flex-col h-full">
-                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mt-auto mb-4">
-                  {project.tech.map((t, i) => (
-                    <span key={i} className="text-xs font-medium px-2 py-1 rounded-full bg-white/5 text-gray-300 border border-white/5">
-                      {t}
-                    </span>
-                  ))}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'auto 1fr auto',
+                  gap: 'clamp(18px,4vw,56px)',
+                  alignItems: 'start',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: FF_SYNE,
+                    fontWeight: 700,
+                    fontSize: 'clamp(15px,1.6vw,20px)',
+                    color: 'rgba(255,255,255,0.35)',
+                    paddingTop: 6,
+                    fontVariantNumeric: 'tabular-nums',
+                  }}
+                >
+                  {p.num}
                 </div>
 
-                {(project.links || project.link) && (
-                  <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-                    {project.links ? (
-                      project.links.map((link, i) => (
-                        <a 
-                          key={i}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-medium text-white hover:text-blue-400 transition-colors flex items-center gap-1"
-                        >
-                          {link.label}
-                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                        </a>
-                      ))
-                    ) : (
-                      <a 
-                        href={project.link} 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-medium text-white hover:text-blue-400 transition-colors flex items-center gap-1"
-                      >
-                        View Project
-                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                      </a>
-                    )}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+                    <h3
+                      style={{
+                        fontFamily: FF_SYNE,
+                        fontWeight: 800,
+                        fontSize: 'clamp(28px,5vw,58px)',
+                        letterSpacing: '-0.03em',
+                        margin: 0,
+                        lineHeight: 1,
+                      }}
+                    >
+                      {p.name}
+                    </h3>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 7,
+                        padding: '4px 11px',
+                        border: '0.5px solid rgba(255,255,255,0.22)',
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: '50%',
+                          flexShrink: 0,
+                          display: 'inline-block',
+                          ...dotStyle,
+                        }}
+                      />
+                      <span style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.7)' }}>
+                        {p.status}
+                      </span>
+                    </div>
                   </div>
-                )}
+
+                  <p
+                    style={{
+                      maxWidth: 620,
+                      fontSize: 'clamp(13px,1.4vw,15.5px)',
+                      lineHeight: 1.6,
+                      color: 'rgba(255,255,255,0.55)',
+                      margin: '14px 0 0',
+                      fontWeight: 300,
+                      fontFamily: FF_SPACE,
+                    }}
+                  >
+                    {p.desc}
+                  </p>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 16 }}>
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          fontFamily: FF_MONO,
+                          fontSize: 10,
+                          letterSpacing: '0.04em',
+                          color: 'rgba(255,255,255,0.5)',
+                          border: '0.5px solid rgba(255,255,255,0.14)',
+                          padding: '4px 9px',
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div
+                    style={{
+                      height: 1,
+                      background: '#fff',
+                      marginTop: 22,
+                      transition: 'width .45s cubic-bezier(.2,.8,.2,1)',
+                      width: active ? '100%' : '0%',
+                    }}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    fontFamily: FF_SYNE,
+                    fontSize: 'clamp(24px,3vw,40px)',
+                    color: '#fff',
+                    paddingTop: 4,
+                    transition: 'opacity .35s, transform .35s',
+                    opacity: active ? 1 : 0,
+                    transform: active ? 'translateX(0px)' : 'translateX(-8px)',
+                  }}
+                >
+                  ↗
+                </div>
               </div>
-              
-              {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
 }
-

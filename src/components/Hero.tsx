@@ -1,88 +1,231 @@
 import Image from 'next/image';
 
+const FF_SYNE = "var(--font-syne, 'Syne', sans-serif)";
+const FF_MONO = "var(--font-mono, 'JetBrains Mono', monospace)";
+
+const stats = [
+  { value: '6+', label: 'Projects built' },
+  { value: '2.4k', label: 'Amarah waitlist' },
+  { value: '2.5M', label: 'XAF invested in farm' },
+  { value: '3+', label: 'Years exploring' },
+];
+
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[80vh] flex flex-col justify-center pt-20">
-      <div className="max-w-4xl mx-auto w-full">
-        {/* Profile Image - Minimal & Clean */}
-        <div className="mb-8 animate-fade-in-up">
-          <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border border-white/10 ring-1 ring-white/5">
-            <Image 
-              src="/LikendinImage.jpg" 
-              alt="Lita Abdel" 
-              fill
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
-              sizes="96px"
-              priority
-            />
+    <section
+      style={{
+        minHeight: 'calc(100vh - 62px)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: 'clamp(20px,3.5vh,40px) clamp(20px,5vw,64px) 0',
+        position: 'relative',
+      }}
+    >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0,1.3fr) minmax(0,0.72fr)',
+          gap: 'clamp(28px,5vw,76px)',
+          alignItems: 'center',
+          flex: 1,
+          minHeight: 0,
+        }}
+      >
+        {/* Left: text */}
+        <div>
+          <div
+            style={{
+              fontFamily: FF_MONO,
+              fontSize: 11,
+              letterSpacing: '0.25em',
+              color: 'rgba(255,255,255,0.45)',
+              marginBottom: 'clamp(16px,3vh,30px)',
+              textTransform: 'uppercase',
+            }}
+          >
+            Personal Portfolio — 2026
           </div>
-        </div>
 
-        {/* Main Typography */}
-        <div className="space-y-6 animate-fade-in-up delay-100">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white text-balance">
-            Building digital <br />
-            <span className="text-white/40">financial infrastructure.</span>
+          <h1
+            style={{
+              fontFamily: FF_SYNE,
+              fontWeight: 800,
+              fontSize: 'clamp(38px,5.6vw,92px)',
+              lineHeight: 0.92,
+              letterSpacing: '-0.03em',
+              margin: 0,
+            }}
+          >
+            <span style={{ display: 'block', color: '#fff' }}>Creative.</span>
+            <span style={{ display: 'block', color: 'transparent', WebkitTextStroke: '1px rgba(255,255,255,0.45)' }}>
+              Builder
+            </span>
+            <span style={{ display: 'block', color: '#fff' }}>
+              when it{' '}
+              <span style={{ color: 'transparent', WebkitTextStroke: '1.2px #fff' }}>helps.</span>
+            </span>
           </h1>
-          
-          <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed font-light">
-            I'm <span className="text-white font-medium">Lita Abdel</span>, a Software Engineer specializing in Payments and Core Banking. 
-            Crafting reliable systems for the next generation of African innovation.
+
+          <p
+            style={{
+              maxWidth: 520,
+              fontSize: 'clamp(14px,1.4vw,17px)',
+              lineHeight: 1.6,
+              color: 'rgba(255,255,255,0.6)',
+              margin: 'clamp(18px,3vh,30px) 0 0',
+              fontWeight: 300,
+            }}
+          >
+            Not tech-first. A creative who moves through fashion, music, and film — and builds infrastructure for
+            the next internet when the problem demands it.
           </p>
+          <div style={{ fontFamily: FF_MONO, fontSize: 12, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.5)', marginTop: 16 }}>
+            Abdel A. Lita · Yaoundé, Cameroon
+          </div>
+
+          {/* Stats */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4,1fr)',
+              borderTop: '0.5px solid rgba(255,255,255,0.1)',
+              marginTop: 'clamp(22px,3.5vh,38px)',
+              maxWidth: 640,
+            }}
+          >
+            {stats.map((s, i) => (
+              <div
+                key={i}
+                style={{
+                  padding: '16px 14px 14px 0',
+                  borderRight: '0.5px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: FF_SYNE,
+                    fontWeight: 800,
+                    fontSize: 'clamp(22px,2.6vw,34px)',
+                    lineHeight: 1,
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  {s.value}
+                </div>
+                <div
+                  style={{
+                    fontFamily: FF_MONO,
+                    fontSize: 10,
+                    letterSpacing: '0.04em',
+                    color: 'rgba(255,255,255,0.42)',
+                    marginTop: 7,
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Actions & Socials */}
-        <div className="mt-12 flex flex-wrap items-center gap-6 animate-fade-in-up delay-200">
-          <a 
-            href="#contact" 
-            className="btn-primary"
-          >
-            Get in touch
-          </a>
-          <a 
-            href="#projects" 
-            className="btn-secondary"
-          >
-            View Work
-          </a>
-
-          <div className="h-px w-8 bg-white/10 hidden md:block"></div>
-
-          <div className="flex items-center gap-4">
-            <SocialLink href="https://github.com/POLA36" icon="github" />
-            <SocialLink href="https://www.linkedin.com/in/litapola/" icon="linkedin" />
-            <SocialLink href="https://x.com/_litapola" icon="twitter" />
-            <SocialLink href="https://www.behance.net/abdellita" icon="behance" />
+        {/* Right: portrait */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ position: 'relative', border: '0.5px solid rgba(255,255,255,0.16)' }}>
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                height: 'clamp(360px,50vh,540px)',
+                overflow: 'hidden',
+                filter: 'grayscale(1) contrast(1.04)',
+              }}
+            >
+              <Image
+                src="/LikendinImage.jpg"
+                alt="Abdel A. Lita"
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, 40vw"
+                priority
+              />
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                top: 12,
+                left: 12,
+                fontFamily: FF_MONO,
+                fontSize: 10,
+                letterSpacing: '0.12em',
+                color: 'rgba(255,255,255,0.55)',
+                pointerEvents: 'none',
+              }}
+            >
+              FIG.01 — POLA
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 12,
+                right: 14,
+                fontFamily: FF_SYNE,
+                fontWeight: 800,
+                fontSize: 13,
+                letterSpacing: '0.05em',
+                color: 'rgba(255,255,255,0.7)',
+                pointerEvents: 'none',
+              }}
+            >
+              3°52′N 11°31′E
+            </div>
           </div>
+
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12 }}>
+            <span style={{ fontFamily: FF_SYNE, fontWeight: 800, fontSize: 18, letterSpacing: '0.04em' }}>POLA</span>
+            <span style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.45)' }}>
+              Abdel A. Lita
+            </span>
+          </div>
+          <div
+            style={{
+              fontFamily: FF_MONO,
+              fontSize: 10.5,
+              lineHeight: 1.55,
+              color: 'rgba(255,255,255,0.4)',
+              fontStyle: 'italic',
+              borderTop: '0.5px solid rgba(255,255,255,0.1)',
+              paddingTop: 11,
+            }}
+          >
+            Litapola is Lita and Pola — two names that belong together, even if the paperwork disagrees.
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: 'clamp(14px,2.5vh,26px) 0 20px',
+        }}
+      >
+        <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)' }}>
+          3°52′N 11°31′E · CEMAC
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <span style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.18em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' }}>
+            Scroll
+          </span>
+          <span style={{ width: 'clamp(40px,8vw,90px)', height: '0.5px', background: 'rgba(255,255,255,0.3)', display: 'inline-block' }} />
+          <span style={{ display: 'inline-block', animation: 'lp-scrollhint 1.8s ease-in-out infinite', color: 'rgba(255,255,255,0.6)', fontSize: 13 }}>
+            ↓
+          </span>
         </div>
       </div>
     </section>
   );
 }
-
-function SocialLink({ href, icon }: { href: string; icon: string }) {
-  return (
-    <a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-white/40 hover:text-white transition-colors duration-200"
-    >
-      <span className="sr-only">{icon}</span>
-      {/* Simple SVG Icons */}
-      {icon === 'github' && (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-      )}
-      {icon === 'linkedin' && (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      )}
-      {icon === 'twitter' && (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      )}
-      {icon === 'behance' && (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.78 12.87h1.66c1.24 0 2.12-.33 2.12-1.54 0-.85-.56-1.32-1.37-1.44.66-.17 1.14-.58 1.14-1.28 0-1.07-.92-1.46-2.04-1.46H7.78v5.72zm1.2-3.38h-1.2v-1.5h1.2c.62 0 .96.24.96.75 0 .5-.34.75-.96.75zm.06 2.54h-1.26v-1.7h1.26c.7 0 1.06.28 1.06.85 0 .58-.37.85-1.06.85zm10.2-1.7c0-1.8-1.4-3.1-3.1-3.1-1.8 0-3.1 1.34-3.1 3.1s1.3 3.1 3.1 3.1c1.4 0 2.5-.8 2.9-2h-1.3c-.3.5-.8.8-1.6.8-1 0-1.6-.6-1.7-1.5h4.6c.03-.2.05-.4.05-.6zm-4.6-.5c.1-.8.7-1.3 1.5-1.3.8 0 1.4.5 1.5 1.3h-3zm4.5-5.3h-3.5v1.1h3.5V4.53z"/></svg>
-      )}
-    </a>
-  );
-}
-
