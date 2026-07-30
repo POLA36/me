@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { projects } from '@/data/projects';
+import { SITE_URL, AUTHOR_NAME } from '@/lib/site';
 
 const FF_SYNE = "var(--font-syne, 'Syne', sans-serif)";
 const FF_MONO = "var(--font-mono, 'JetBrains Mono', monospace)";
@@ -13,7 +14,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
-  return { title: `${project.name} — LITAPOLA` };
+
+  const title = project.name;
+  const description = project.desc;
+  const url = `${SITE_URL}/work/${slug}`;
+
+  return {
+    title,
+    description,
+    keywords: [project.name, project.domain, ...project.tags],
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: {
+      type: 'article',
+      url,
+      title: `${project.name} — LITAPOLA`,
+      description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.name} — LITAPOLA`,
+      description,
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,8 +51,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     ? { background: '#fff', opacity: project.dotOp }
     : { background: 'transparent', border: `1px solid rgba(255,255,255,${project.dotOp})`, width: 5, height: 5 };
 
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.name,
+    description: project.desc,
+    url: `${SITE_URL}/work/${project.slug}`,
+    ...(project.href ? { sameAs: [project.href] } : {}),
+    creator: { '@type': 'Person', name: AUTHOR_NAME },
+    keywords: project.tags.join(', '),
+    genre: project.domain,
+    dateCreated: project.year,
+  };
+
   return (
     <div style={{ background: '#000', color: '#fff', minHeight: '100vh' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
       {/* Nav */}
       <nav
         style={{
