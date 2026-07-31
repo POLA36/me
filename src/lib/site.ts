@@ -7,3 +7,5 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/litapola/',
   x: 'https://x.com/_litapola',
 };
+
+export const GA_MEASUREMENT_ID = 'G-H0M3LZ84XY';

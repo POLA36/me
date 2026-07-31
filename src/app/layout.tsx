@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import {
   SITE_URL,
@@ -7,6 +8,7 @@ import {
   AUTHOR_NAME,
   SITE_DESCRIPTION,
   SOCIAL_LINKS,
+  GA_MEASUREMENT_ID,
 } from "@/lib/site";
 
 const syne = Syne({
@@ -136,6 +138,7 @@ export default function RootLayout({
         />
         {children}
       </body>
+      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
     </html>
   );
 }
