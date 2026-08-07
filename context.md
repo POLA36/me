@@ -4,7 +4,7 @@ Delivering reliable, scalable financial and enterprise systems for the next gene
 I am **Abdel Lita**,  
 **Software Engineer – Fullstack & Backend**, specialized in **Enterprise Systems**, **Banking Software**, **Payments**, and **Process Automation**.
 
-I build production-grade solutions that power real institutions — from HR platforms to Core Banking components, payment workflows, and enterprise middleware.
+I build production-grade solutions that power real institutions, from HR platforms to Core Banking components, payment workflows, and enterprise middleware.
 
 ---
 
@@ -68,7 +68,7 @@ My strength is understanding both **business logic** and **technical architectur
 Optimized performance across backend services, ensuring reliable execution even under heavy load.
 
 ### **Responsive**
-Designed UIs and dashboards that adapt to all screens — mobile, tablet, web.
+Designed UIs and dashboards that adapt to all screens, mobile, tablet, web.
 
 ### **Intuitive**
 Focused on smooth user experience, clear workflows, and easy-to-understand interactions.

@@ -44,7 +44,7 @@ export default function Hero() {
               textTransform: 'uppercase',
             }}
           >
-            Personal Portfolio — {new Date().getFullYear()}
+            Personal Portfolio, {new Date().getFullYear()}
           </div>
 
           <h1
@@ -77,7 +77,7 @@ export default function Hero() {
               fontWeight: 300,
             }}
           >
-            Not tech-first. A creative who moves through fashion, music, and film — and builds infrastructure for
+            Not tech-first. A creative who moves through fashion, music, and film, and builds infrastructure for
             the next internet when the problem demands it.
           </p>
           <div style={{ fontFamily: FF_MONO, fontSize: 12, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.5)', marginTop: 16 }}>
@@ -163,7 +163,7 @@ export default function Hero() {
                 pointerEvents: 'none',
               }}
             >
-              FIG.01 — POLA
+              FIG.01, POLA
             </div>
             <div
               style={{
@@ -199,7 +199,7 @@ export default function Hero() {
               paddingTop: 11,
             }}
           >
-            Litapola is Lita and Pola — two names that belong together, even if the paperwork disagrees.
+            Litapola is Lita and Pola, two names that belong together, even if the paperwork disagrees.
           </div>
         </div>
       </div>

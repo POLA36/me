@@ -94,7 +94,7 @@ export default function Experience() {
             >
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', opacity: 0.85, display: 'inline-block' }} />
               <span style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.45)' }}>
-                litapola@lab — activity.log
+                litapola@lab, activity.log
               </span>
             </div>
             <div style={{ padding: 'clamp(16px,3vw,26px)', display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -110,8 +110,7 @@ export default function Experience() {
                     lineHeight: 1.4,
                   }}
                 >
-                  <span style={{ color: 'rgba(255,255,255,0.45)', whiteSpace: 'nowrap' }}>[{l.date}]</span>
-                  <span style={{ color: 'rgba(255,255,255,0.3)' }}>—</span>
+                  <span style={{ color: 'rgba(255,255,255,0.45)', whiteSpace: 'nowrap' }}>[{l.date}],</span>
                   <span style={{ color: 'rgba(255,255,255,0.82)' }}>{l.text}</span>
                 </div>
               ))}

@@ -98,7 +98,7 @@ export default async function ProjectOpengraphImage({
             fontFamily: 'sans-serif',
           }}
         >
-          <span>LITAPOLA — {AUTHOR_NAME}</span>
+          <span>LITAPOLA, {AUTHOR_NAME}</span>
           <span>litapola.org/work/{slug}</span>
         </div>
       </div>

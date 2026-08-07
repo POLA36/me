@@ -40,7 +40,7 @@ export default function Projects() {
           Selected Work
         </h2>
         <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)' }}>
-          008 — built when the problem demanded it
+          008, built when the problem demanded it
         </div>
       </div>
 

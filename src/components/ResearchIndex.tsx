@@ -24,7 +24,7 @@ export default function ResearchIndex() {
         }}
       >
         <div style={{ fontFamily: FF_MONO, fontSize: 11, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.42)', textTransform: 'uppercase' }}>
-          Research Index — {String(projects.length).padStart(3, '0')} entries
+          Research Index, {String(projects.length).padStart(3, '0')} entries
         </div>
         <div style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.3)' }}>
           CLASSIFICATION / STATUS / YEAR
@@ -85,7 +85,7 @@ function IndexCard({ ix }: { ix: Project }) {
           {ix.domain}
         </div>
         <div style={{ fontFamily: FF_MONO, fontSize: 10, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.35)' }}>
-          STATUS — {ix.status}
+          STATUS, {ix.status}
         </div>
       </div>
     </a>

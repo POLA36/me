@@ -7,22 +7,22 @@ const TICKER =
 
 const cards = [
   {
-    meta: 'Film / 2017 — Limbe, Cameroon',
+    meta: 'Film / 2017, Limbe, Cameroon',
     glyph: '◈',
     title: 'Stood in the room.',
-    body: "Auditioned for a role in Limbe. Opportunity came through Onyama Laura, the Cameroonian actress. Didn't pass — but stood in the room.",
+    body: "Auditioned for a role in Limbe. Opportunity came through Onyama Laura, the Cameroonian actress. Didn't pass, but stood in the room.",
   },
   {
-    meta: 'Music / 2018 — Selected',
+    meta: 'Music / 2018, Selected',
     glyph: '♫',
     title: "It doesn't expire.",
-    body: "Selected for the Mützig Star competition. Didn't participate. But the selection said something about what's inside — and that doesn't expire.",
+    body: "Selected for the Mützig Star competition. Didn't participate. But the selection said something about what's inside, and that doesn't expire.",
   },
   {
     meta: 'Fashion & Aesthetic / Always',
     glyph: '✦',
     title: 'The creative eye.',
-    body: 'Taste that runs through everything — how products look, how stories are told, how systems feel. The creative eye behind every build.',
+    body: 'Taste that runs through everything, how products look, how stories are told, how systems feel. The creative eye behind every build.',
   },
 ];
 

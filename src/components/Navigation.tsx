@@ -25,7 +25,7 @@ export default function Navigation() {
           LITA<span style={{ opacity: 0.55 }}>POLA</span>
         </div>
         <div style={{ fontFamily: FF_MONO, fontSize: 9, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.4)' }}>
-          Lita and Pola — two names that belong together.
+          Lita and Pola, two names that belong together.
         </div>
       </div>
 

@@ -76,8 +76,8 @@ export default function OpengraphImage() {
               display: 'flex',
             }}
           >
-            Fintech, payments &amp; enterprise systems engineering
-            — plus fashion, music, and film on the side.
+            Fintech, payments &amp; enterprise systems engineering,
+            plus fashion, music, and film on the side.
           </div>
         </div>
 

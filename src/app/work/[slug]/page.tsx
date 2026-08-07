@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       type: 'article',
       url,
-      title: `${project.name} — LITAPOLA`,
+      title: `${project.name}, LITAPOLA`,
       description,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${project.name} — LITAPOLA`,
+      title: `${project.name}, LITAPOLA`,
       description,
     },
   };

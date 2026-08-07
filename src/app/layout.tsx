@@ -35,8 +35,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${AUTHOR_NAME}`,
-    template: `%s — ${SITE_NAME}`,
+    default: `${SITE_NAME}, ${AUTHOR_NAME}`,
+    template: `%s, ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ${AUTHOR_NAME}`,
+    title: `${SITE_NAME}, ${AUTHOR_NAME}`,
     description: SITE_DESCRIPTION,
     locale: "en_US",
   },
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@_litapola",
     creator: "@_litapola",
-    title: `${SITE_NAME} — ${AUTHOR_NAME}`,
+    title: `${SITE_NAME}, ${AUTHOR_NAME}`,
     description: SITE_DESCRIPTION,
   },
 };
@@ -93,10 +93,32 @@ const personJsonLd = {
   name: AUTHOR_NAME,
   alternateName: SITE_NAME,
   url: SITE_URL,
-  jobTitle: "Software Engineer — Fullstack & Backend",
+  jobTitle: "Software Engineer, Fullstack & Backend",
   description: SITE_DESCRIPTION,
   email: "mailto:litapo489@gmail.com",
   sameAs: [SOCIAL_LINKS.linkedin, SOCIAL_LINKS.x],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "investor relations",
+      email: "investor@litapola.org",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "grants and NGO partnerships",
+      email: "grants@litapola.org",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "press",
+      email: "press@litapola.org",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "general inquiries",
+      email: "hello@litapola.org",
+    },
+  ],
   knowsAbout: [
     "Core Banking Systems",
     "Payment Systems",

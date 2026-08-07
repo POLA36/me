@@ -6,6 +6,7 @@ import Projects from '@/components/Projects';
 import Creative from '@/components/Creative';
 import AboutMe from '@/components/AboutMe';
 import Mission from '@/components/Mission';
+import WorkWithLitapola from '@/components/WorkWithLitapola';
 import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Footer from '@/components/Footer';
@@ -62,6 +63,7 @@ export default function Home() {
         <Creative />
         <AboutMe />
         <Mission />
+        <WorkWithLitapola />
         <Experience />
         <Skills />
         <Footer />

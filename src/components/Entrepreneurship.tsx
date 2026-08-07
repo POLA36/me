@@ -17,7 +17,7 @@ export default function Entrepreneurship() {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-2xl font-bold text-white">Founder & CEO — Roof</h3>
+                  <h3 className="text-2xl font-bold text-white">Founder & CEO, Roof</h3>
                   <span className="px-3 py-1 rounded-full text-xs font-medium bg-orange-500/10 text-orange-400 border border-orange-500/20">
                     2023 – Present
                   </span>

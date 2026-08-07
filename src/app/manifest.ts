@@ -3,10 +3,10 @@ import { SITE_NAME, AUTHOR_NAME } from '@/lib/site';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${SITE_NAME} — ${AUTHOR_NAME}`,
+    name: `${SITE_NAME}, ${AUTHOR_NAME}`,
     short_name: SITE_NAME,
     description:
-      'Fintech, payments, and enterprise systems engineering — plus fashion, music, and film on the side.',
+      'Fintech, payments, and enterprise systems engineering, plus fashion, music, and film on the side.',
     start_url: '/',
     display: 'standalone',
     background_color: '#000000',

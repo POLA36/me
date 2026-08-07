@@ -35,7 +35,7 @@ export default function Mission() {
       >
         Using technology to{' '}
         <span style={{ color: '#fff' }}>close access gaps</span>
-        {' '}— in finance, healthcare, and agriculture — across{' '}
+        , in finance, healthcare, and agriculture, across{' '}
         <span style={{ color: '#fff' }}>Africa</span>. Not because it&apos;s a market.{' '}
         <span style={{ color: '#fff' }}>Because it&apos;s home.</span>
       </p>
