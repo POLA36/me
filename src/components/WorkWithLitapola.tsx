@@ -73,9 +73,9 @@ export default function WorkWithLitapola() {
       </div>
 
       <div
+        className="lp-work-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2,1fr)',
           gap: 1,
           background: 'rgba(255,255,255,0.1)',
           border: '0.5px solid rgba(255,255,255,0.1)',

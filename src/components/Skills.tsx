@@ -31,9 +31,9 @@ export default function Skills() {
       }}
     >
       <div
+        className="lp-skills-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: '1.2fr 1fr',
           gap: 'clamp(40px,7vw,100px)',
           alignItems: 'start',
         }}

@@ -23,9 +23,9 @@ export default function Hero() {
       }}
     >
       <div
+        className="lp-hero-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0,1.3fr) minmax(0,0.72fr)',
           gap: 'clamp(28px,5vw,76px)',
           alignItems: 'center',
           flex: 1,
@@ -86,9 +86,9 @@ export default function Hero() {
 
           {/* Stats */}
           <div
+            className="lp-hero-stats"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4,1fr)',
               borderTop: '0.5px solid rgba(255,255,255,0.1)',
               marginTop: 'clamp(22px,3.5vh,38px)',
               maxWidth: 640,

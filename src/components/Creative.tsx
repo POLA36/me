@@ -108,9 +108,9 @@ export default function Creative() {
 
       {/* Cards */}
       <div
+        className="lp-creative-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3,1fr)',
           gap: 1,
           background: 'rgba(255,255,255,0.1)',
           margin: '0 clamp(20px,5vw,64px)',

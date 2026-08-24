@@ -26,9 +26,9 @@ export default function Experience() {
       }}
     >
       <div
+        className="lp-experience-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: '0.85fr 1.15fr',
           gap: 'clamp(40px,7vw,96px)',
           alignItems: 'start',
         }}

@@ -13,8 +13,10 @@ export default function ThreeBackground() {
     const W = () => window.innerWidth;
     const H = () => window.innerHeight;
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const isMobile = W() < 768;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
     renderer.setSize(W(), H());
 
     const scene = new THREE.Scene();
@@ -28,7 +30,7 @@ export default function ThreeBackground() {
 
     // Starfield
     const starGeo = new THREE.BufferGeometry();
-    const sCount = 2600;
+    const sCount = isMobile ? 1300 : 2600;
     const pos = new Float32Array(sCount * 3);
     for (let i = 0; i < sCount; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 120;
@@ -219,11 +221,11 @@ export default function ThreeBackground() {
       return group;
     };
 
-    const FLASK_COUNT = 7;
-    const NOTE_COUNT = 7;
-    const REEL_COUNT = 7;
-    const GLOBE_COUNT = 9;
-    const TESS_COUNT = 4;
+    const FLASK_COUNT = isMobile ? 3 : 7;
+    const NOTE_COUNT = isMobile ? 3 : 7;
+    const REEL_COUNT = isMobile ? 3 : 7;
+    const GLOBE_COUNT = isMobile ? 4 : 9;
+    const TESS_COUNT = isMobile ? 2 : 4;
 
     for (let i = 0; i < FLASK_COUNT; i++) {
       const s = rand(0.7, 1.4);

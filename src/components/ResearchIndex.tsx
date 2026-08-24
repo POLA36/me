@@ -32,9 +32,9 @@ export default function ResearchIndex() {
       </div>
 
       <div
+        className="lp-research-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3,1fr)',
           gap: 1,
           background: 'rgba(255,255,255,0.1)',
           border: '0.5px solid rgba(255,255,255,0.1)',
